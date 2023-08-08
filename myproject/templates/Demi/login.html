@@ -1,0 +1,30 @@
+{% extends 'Demi/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  
+  {% block content %}
+    <form id="form" method = 'POST' style="border-radius: 25px; border: 2px solid #19d4fc; padding: 20px; width: 400px; height: 350px; margin-block: 50px; margin-left: 490px;">
+     {% csrf_token %} 
+     <!-- for security purposes,prevents hackers from adding malicious content into our urls. -->
+     {{form | crispy}}
+      <!-- form handled by crispy forms -->
+      <br>
+      <input type="submit" name="Submit" class="btn  btn-outline-success btn-block"> <br>
+      <br></br>
+      <!-- <p style="margin-left: 140px;"> -->
+       
+      
+    </form>
+{% endblock %}
+</body>
+</html>
