@@ -3,7 +3,7 @@
 
 <div class = "container">
     <a href="{% url 'give_item' product.id %}" ><input type="submit" value="Buy Item" class="btn btn-secondary" btn type="button"/></a>
-    <a href="{% url 'stock_increase' product.id %}" ><input type= "submit" value="stock_increase" class="btn btn-secondary btn" type="button"/></a>
+    <a href="{% url 'add_to_stock' product.id %}" ><input type= "submit" value="add_to_stock" class="btn btn-secondary btn" type="button"/></a>
 </div>
 
 <br></br>
@@ -14,6 +14,7 @@
         <th scope="col">Category</th>
         <th scope="col">Item Name</th>
         <th scope="col">Quantity</th>
+        <th scope="col">country_of_origin</th>
         <th scope="col">Unit Price(UGX)</th>   
       </tr>
     </thead>
@@ -22,7 +23,9 @@
         <td>{{product.category_name}}</td>
         <td>{{product.item_name}}</td>
         <td>{{product.total_quantity}}</td>
-        <td>UGX{{product.unit_price}}</td>   
+        <td>{{product.country_of_origin}}</td>
+        <td>UGX{{product.unit_price}}</td>
+           
       </tr>
     </tbody>  
   </table>

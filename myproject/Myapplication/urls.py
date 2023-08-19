@@ -6,8 +6,8 @@ from Myapplication import views
 
 urlpatterns = [
     #path('index/',views.index, name='index'),
-    path('', views.index, name='index'),
-    path('home/', views.home, name='home'),
+    path('',views.index, name='index'),
+    path('home', views.home, name='home'),
     path('home/<int:product_id>', views.product_detail, name='prduct_detail'), 
 
     path('login/', auth_views.LoginView.as_view(template_name = 'Demi/login.html'), name= 'login'),

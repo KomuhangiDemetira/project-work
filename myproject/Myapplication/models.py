@@ -16,7 +16,7 @@ class Product(models.Model):
     
     category_name = models.ForeignKey(Category, on_delete=models.CASCADE, null=False, blank=False)
     item_name = models.CharField(max_length=50, null=False, blank=False)
-    country_origin = models.CharField(max_length=50, null=False, blank=False)  # Changed to CharField
+    country_of_origin = models.CharField(max_length=50, null=False, blank=False)  # Changed to CharField
     total_quantity = models.IntegerField(null=False, blank=False)
     issued_quantity = models.IntegerField(null=False, blank=False)
     received_quantity = models.IntegerField(null=False, blank=False)

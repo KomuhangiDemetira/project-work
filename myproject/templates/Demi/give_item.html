@@ -8,8 +8,8 @@
         <h1 class="text-center">SALES FORM</h1>
             <br/>
             {% csrf_token %}
-{{sales_form | crispy}}
-    <input type="submit" class="btn-secondary btn " type = button>
+            {{made_sales_form | crispy}}
+    <input type="submit" class="btn-secondary btn " type = "button" value="DELIVER">
     </form>
 
 </div>

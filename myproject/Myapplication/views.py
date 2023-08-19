@@ -1,9 +1,9 @@
 # Import necessary modules
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from.models import *
-from.forms import *
-from.filters import *
+from . models import *
+from . forms import *
+from . filters import *
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
@@ -27,37 +27,35 @@ def home(request):
 
 
 def made_sales(request):
-    pass
+     pass    
+    
+
 @login_required
-def give_item(request,pk):
-    given_item = Product.objects.get(id = pk)
-    sales_form = SaleForm(request.POST)
-
-    if request.method=="POST":
-        if sales_form.is_valid():
-            new_sale = sales_form.save(commit = False)
-            new_sale.item = give_item
-            new_sale.unit_price = give_item.unit_price
-            new_sale.save()
-            #keeping truck of stock remaining after the sale
-            issued_quantity = int(request.POST['quantity'])
-            give_item.total_quantity -= issued_quantity
-            give_item.save()
-
-            print (give_item.item_name)
-            print (request.POST['quantity'])
-            print (give_item.total_quantity)
-
-            return redirect('receipt')
-    return render(request,'Demi/give_item.html',{'sales_form': sales_form})    
+def receipt(request):
+    sales = Sale.objects.all().order_by('-id')
+    return render(request,'Demi/receipt.html',{'sales':sales})
     
 
 
-def receipt(request):
-    pass
 
-def add_to_stock(request):
-    pass
+
+@login_required
+def add_to_stock(request,pk):
+    issued_item = Product.objects.get(id = pk)
+    form = AddForm(request.POST)
+
+    if request.method == 'POST':
+        if form.is_valid():
+
+            added_quantity = int(request.POST['received_quantity'])
+            issued_item.total_quantity += added_quantity 
+            issued_item.save()
+            
+            print(added_quantity)
+            print(issued_item.total_quantity)
+            return redirect('home')
+    return render(request,'Demi/add_to_stock.html',{'form':form})
+
 
 @login_required
 def product_detail(request,product_id):
@@ -70,14 +68,28 @@ def receipt(request):
     return render(request,'Demi/receipt.html',{'sales':sales})
 
 
-
-def give_items(request):
-    pass
+@login_required
+def give_item(request,pk):
+    give_item = Product.objects.get(id=pk)
+    made_sales_form = SaleForm(request.POST)
+    if request.method =='POST':
+        if made_sales_form.is_valid():
+            new_sale=made_sales_form.save(commit=False)
+            new_sale.item=give_item
+            new_sale.unit_price=give_item.unit_price
+            new_sale.save()
+            print(give_item.item_name)
+            print(request.POST['quantity'])
+            print(give_item.total_quantity)
+            return redirect('receipt')
+    return render(request,'Demi/give_item.html',{'made_sales_form':made_sales_form})    
+    
+    
 
 @login_required
 def receipt_detail(request,receipt_id):
     receipt = Sale.objects.get(id = receipt_id)
-    return render(request,'Demi/receipt_detail.html',{receipt:receipt})
+    return render(request,'Demi/receipt_detail.html',{'receipt':receipt})
 
 @login_required    
 def made_sales(request):

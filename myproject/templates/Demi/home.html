@@ -10,11 +10,9 @@
   <br>
 
   <div class = "container">
-    <form action = "" method = "GET">
-      {{ product_filters.form }}
-
-      <input 
-      type = "submit"
+    <form action = "" method = "GET" style="margin-right: 450px;">
+      {{product_filters.form}}
+      <input type = "submit"
       value = "Search Products"
       class="btn btn-secondary btn"/>
     </form>
@@ -28,6 +26,7 @@
         <th scope="col">Item Name</th>
         <th scope="col">Quantity</th>
         <th scope="col">Unit Price(UGX)</th>
+        <th scope = "col">Country of origin</th>
         <th scope = "col">Detail</th>
       </tr>
     </thead>
@@ -38,32 +37,21 @@
         <td>{{product.item_name}}</td>
         <td>{{product.total_quantity}}</td>
         <td>UGX{{product.unit_price}}</td>
+        <td>{{product.country_of_origin}}</td>
         
         <td><a href ="{% url 'product_detail' product.id %}"
            ><input
                 type="submit"
-                value="BUY ITEM"
+                value="PURCHASE ITEM"
                 class="btn btn-secondary btn"
                 type="button"
             /></a></td>
-
-
-<td><a href=""
-              ><input
-                type="submit"
-                value="Delete ITEM"
-                class="btn btn-secondary btn"
-                type="button"
-            /></a></td>
-
-
-
-
       </tr>
     </tbody>
     {% endfor %}
   </table>
-  <a class="nav-link" href="{% url 'login' %}">Login</a>
+  
 
 </div>
 {% endblock %}
+

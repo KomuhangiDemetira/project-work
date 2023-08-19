@@ -3,15 +3,15 @@
 }
 
 .new{
-    color: chocolate;
+    color: black;
     text-align: center;
 
 }
  body{ 
   background: dark;
-  /* background-image: url('../tech.png'); */
+   background-image: url('../images/bak.jpg.png');
   background: no-repeat;
-  size: 100%;
+  background-size: 100% 100%;
 
 }
 

@@ -1,4 +1,3 @@
-{% extends 'Demi/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
@@ -7,24 +6,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body style="background-color: slategrey;">
+  <div>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo-img" style="height: 50px; width: 50px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" style="color: white;">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">
+                  <h5 style="margin-left: 500px; color: white; font-weight: bolder;"> WELCOME TO BEREALMOTOR SPARE PARTS COMPANY</h5>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </nav>
+    
+  </div>
 
 
   
   {% block content %}
-    <form id="form" method = 'POST' style="border-radius: 25px; border: 2px solid #19d4fc; padding: 20px; width: 400px; height: 350px; margin-block: 50px; margin-left: 490px;">
+    <form id="form" method = 'POST' style="border-radius: 25px; border: 2px solid #060808; padding: 20px; width: 400px; height: 350px;
+     margin-block: 50px; margin-left: 490px; background-color: honeydew;">
      {% csrf_token %} 
      <!-- for security purposes,prevents hackers from adding malicious content into our urls. -->
      {{form | crispy}}
       <!-- form handled by crispy forms -->
       <br>
-      <input type="submit" name="Submit" class="btn  btn-outline-success btn-block"> <br>
+      <input type="submit" name="Submit" class="btn  btn-outline-success btn-block" value="LOGIN"> <br>
       <br></br>
       <!-- <p style="margin-left: 140px;"> -->
        
       
     </form>
+    <div class="row">
+      <div class="col" style="text-align: center; color: white; background-color: black;">
+        <footer>
+          <p>Bereal motor spareparts Company</p>
+          <p>0789459167</p>
+          <p>Email:demetirakomuhangi2023@gmail.com</p>
+          <i class="fa fa-copyright"></i>Demetira Komuhangi
+          <br><br>
+        </footer>  
+      </div>
+    </div>  
 {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

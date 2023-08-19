@@ -7,10 +7,10 @@
 <div class="container">
   <form method="POST" action = "">
     <h1 class = "text-center
-    ">INCREASE_STOCK FORM</h1><br>
+    ">ADD_STOCK FORM</h1><br>
     {% csrf_token %} 
     {{form | crispy}}
-    <input type = "submit" class="btn btn-secondary btn"type="button">
+    <input type = "submit" class="btn btn-secondary btn"type="button" value="INCREASE">
   </form>
 </div>
 {% endblock %}
