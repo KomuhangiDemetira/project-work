@@ -41,11 +41,9 @@
     
   </div>
 
-
-  
   {% block content %}
     <form id="form" method = 'POST' style="border-radius: 25px; border: 2px solid #060808; padding: 20px; width: 400px; height: 350px;
-     margin-block: 50px; margin-left: 490px; background-color: honeydew;">
+     margin-block: 50px; margin-left: 490px; background-color: skyblue;">
      {% csrf_token %} 
      <!-- for security purposes,prevents hackers from adding malicious content into our urls. -->
      {{form | crispy}}
@@ -63,7 +61,7 @@
           <p>Bereal motor spareparts Company</p>
           <p>0789459167</p>
           <p>Email:demetirakomuhangi2023@gmail.com</p>
-          <i class="fa fa-copyright"></i>Demetira Komuhangi
+          &copy; Demetira Komuhangi
           <br><br>
         </footer>  
       </div>

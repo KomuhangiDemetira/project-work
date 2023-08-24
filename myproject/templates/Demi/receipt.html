@@ -1,47 +1,43 @@
-{% extends 'Demi/base.html'%} {% block content%} <br /><br />
-<div class="container" style="background-color: black">
-  <h1
-    class="card-header text-center"
-    style="color: white; background-color: black"
-  >
-    ALL RECEIPTS
-  </h1>
-  <br />
+
+
+{% extends 'Demi/base.html'%} {% block content%}
+<br /><br>
+<div class="container">
+  <h1 class="card-header text-center" style="color: white ; background-color: black;">ALL RECEIPTS</h1><br>
   {% for sale in sales %}
-  <div class="card" style="background-color: aliceblue;">
+  <div class="card" style="background-color: skyblue;">
     <div class="card-body">
-      <h3 class="card-title" style="color: aqua">
-        Customer : {{sale.issued_to | title}}
-      </h3>
-      <br />
+      <h3 class="card-title" style="color: black;">Customer : {{sale.issued_to | title}}</h3>
+      <br>
+      <h6 class="card-text">Branch: {{sale.branch_name}}</h6>
+      <br>
       <h6 class="card-text">Item : {{sale.item}}</h6>
-      <br />
-      <h6 class="card-text">Amount Paid: UGX{{ sale.amount_received }}</h6>
-      <br />
+      <br>
+      <h6 class="card-text">Amount Paid:  UGX{{ sale.amount_received }}</h6>
+      <br>
       <h6 class="card-text">Quantity: {{sale.quantity }}</h6>
-      <br />
-      <h6 class="card-text">Total Price : UGX{{ sale.get_total }}</h6>
-      <br />
+      <br>
+      <h2 >Total Price :  UGX{{ sale.get_total }}</h2>
+      <br>
       <div style="flex: 1">
-        <h6 class="card-text">Change Collected: UGX{{ sale.get_change }}</h6>
-        <br />
-        <div style="text-align: center">
-          <div>
-            <a href="{% url 'receipt_detail' sale.id %}">
-              <input
-                style="color: white"
-                type="submit"
-                value="Final Receipt"
-                class="btn btn-danger"
-                type="button"
-              />
-            </a>
-          </div>
-        </div>
+        <h6 class="card-text">Change Collected:  UGX{{ sale.get_change }}</h6>
+        <br>
+        <div style="text-align: center;">
+        <a href="{% url 'receipt_detail' sale.id %}">
+          <input
+          style="color: white;"
+            type="submit"
+            value="Final Receipt"
+            class="btn btn-danger"
+            type="button"
+          />
+        </a>
       </div>
-      <br />
-      {% endfor %}
     </div>
-    {% endblock %}
   </div>
 </div>
+  <br />
+  {% endfor %}
+</div>
+{% endblock %} 
+ 

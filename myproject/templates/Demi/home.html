@@ -24,6 +24,7 @@
       <tr>
         <th scope="col">Category</th>
         <th scope="col">Item Name</th>
+        <th scope="col">part Number</th>
         <th scope="col">Quantity</th>
         <th scope="col">Unit Price(UGX)</th>
         <th scope = "col">Country of origin</th>
@@ -35,15 +36,14 @@
       <tr>    
         <td>{{product.category_name}}</td>
         <td>{{product.item_name}}</td>
+        <td>xw-{{product.id}}</td>
         <td>{{product.total_quantity}}</td>
         <td>UGX{{product.unit_price}}</td>
         <td>{{product.country_of_origin}}</td>
         
-        <td><a href ="{% url 'product_detail' product.id %}"
-           ><input
-                type="submit"
-                value="PURCHASE ITEM"
-                class="btn btn-secondary btn"
+        <td>
+          <a href ="{% url 'product_detail' product.id %}"><input type="submit"value="PURCHASE ITEM"
+                class="btn btn-secondary btn" style="color: skyblue;"
                 type="button"
             /></a></td>
       </tr>

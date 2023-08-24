@@ -17,11 +17,11 @@ urlpatterns = [
     path('receipt_detail/<int:receipt_id>', views.receipt_detail, name='receipt_detail'),
      
     
-    path('give_item/<str:pk>',views.give_item, name = 'give_item'),
+    path('issue_item/<str:pk>',views.issue_item, name = 'issue_item'),
     path('home/<int:product_id>',views.product_detail, name ='product_detail'),
     path('made_sales/', views.made_sales, name='made_sales'),
     path('add_to_stock/<str:pk>', views.add_to_stock, name='add_to_stock'),
     
-    path('login/',auth_views.LoginView.as_view(template_name='Demi/login.html'), name ='login'),
+    #path('login/',auth_views.LoginView.as_view(template_name='Demi/login.html'), name ='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='Demi/index.html'), name ='logout'),
 ]   

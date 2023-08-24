@@ -5,11 +5,11 @@ from.models  import *
 class AddForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['received_quantity']
+        fields = ['received_quantity',]
         
-class SaleForm(ModelForm):
+class MadeSaleForm(ModelForm):
     class Meta:
         model = Sale
-        fields = ['quantity','amount_received','issued_to']
+        fields = ['quantity','amount_received','issued_to','branch_name',]
         
     
