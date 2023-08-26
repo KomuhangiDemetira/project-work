@@ -1,15 +1,21 @@
 
 
 {% extends 'Demi/base.html'%} {% block content%}
+<style>
+  body,html{
+    background-color: skyblue;
+  }
+
+</style>
 <br /><br>
 <div class="container">
-  <h1 class="card-header text-center" style="color: white ; background-color: black;">ALL RECEIPTS</h1><br>
+  <h1 class="card-header text-center" style="color:white ; background-color: black;">ALL RECEIPTS</h1><br>
   {% for sale in sales %}
-  <div class="card" style="background-color: skyblue;">
+  <div class="card" style="background-color: white; color:color(srgb red green blue);">
     <div class="card-body">
       <h3 class="card-title" style="color: black;">Customer : {{sale.issued_to | title}}</h3>
       <br>
-      <h6 class="card-text">Branch: {{sale.branch_name}}</h6>
+      <h6 class="card-text">Branch name:{{ sale.branch_name }}</h6>
       <br>
       <h6 class="card-text">Item : {{sale.item}}</h6>
       <br>
@@ -21,14 +27,22 @@
       <br>
       <div style="flex: 1">
         <h6 class="card-text">Change Collected:  UGX{{ sale.get_change }}</h6>
+        <h6 class="card-text">date:{{ sale.date }}</h6>
         <br>
         <div style="text-align: center;">
         <a href="{% url 'receipt_detail' sale.id %}">
+          <div style="text-align: center;">
+          manager' signature
+          *************
+          <br>
+          <br>
+          </div>
+          <p style="text-align: center;color: black;">Enjoy Our Services.</p>
           <input
-          style="color: white;"
+          style="color: black;"
             type="submit"
-            value="Final Receipt"
-            class="btn btn-danger"
+            value=" print out"
+            class="btn btn-info"
             type="button"
           />
         </a>

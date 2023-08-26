@@ -4,13 +4,13 @@
 {% block content %}
 <br/>
 <div class ="container">
-    <form method="POST" action="">
-        <h1 class="text-center">SALES FORM</h1>
-            <br/>
+    <h1 class="text-center" style="margin-bottom: 20px;">SALES FORM</h1>
+    <form method="POST" action="" style="border-radius: 25px; border: 2px solid #060808; padding: 20px; width: 400px; height: 480px;
+     margin-left: 400px; background-color: beige;">
             {% csrf_token %}
             {{made_sales_form | crispy}}
-    <input type="submit" class="btn-secondary btn " type = "button" value="DELIVER">
+    <input type="submit" class="btn-secondary btn " type = "button" value="CONFIRM SALE">
     </form>
-
+    <br>
 </div>
 {% endblock %}

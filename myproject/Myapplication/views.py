@@ -1,19 +1,19 @@
 # Import necessary modules
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from.models import *
-from.forms import *
-from.filters import *
+from.models import Category,Product,Sale
+from.forms import AddForm,MadeSaleForm
+from.filters import ProductFilter,CategoryFilter
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
 
 # View function for the 'index' view
 def index(request):
-  
     return render(request,'Demi/index.html')
+
+@login_required
 def home(request):
-  
     products = Product.objects.all().order_by('-id')
     product_filters = ProductFilter(request.GET,queryset = products)
     #
@@ -22,8 +22,8 @@ def home(request):
 
 
 
-def all_sales(request):
-    pass
+# def all_sales(request):
+#     pass
 
 
 @login_required
