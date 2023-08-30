@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 # from django.utils import timezone
 
@@ -33,6 +33,7 @@ class Sale(models.Model):
     issued_to =models.CharField(max_length =100,null =False,blank =False)
     unit_price =models.DecimalField (max_digits=10, decimal_places=2, null=False, blank=False)
     branch_name =models.CharField(max_length=50, null=False, blank=False)
+    date = models.DateField(default=timezone.now)
     
     def get_total(self):
         total = self.quantity *self.item.unit_price

@@ -19,10 +19,11 @@
   </head>
   <body>
     <style>
-      html,body {
+      html,
+      body {
         background-image: url(../static/images/machine.jpg);
-        background-repeat:no-repeat;
-        background-size: 100%;
+        /* background-repeat:no-repeat; */
+        /* background-size: 100%; */
       }
     </style>
     <div style="background-color: black">
@@ -56,17 +57,15 @@
                   class="nav-link active"
                   aria-current="page"
                   href="{% url 'index' %}"
-                  style="color: white ;font-weight: 500;"
+                  style="color: white; font-weight: 500"
                   >BRMSPC</a
                 >
               </li>
             </ul>
           </div>
-          <a
-          class="nav-link"
-          href="{% url 'login' %}"
-          style="color: white"
-          >Login</a>
+          <a class="nav-link" href="{% url 'login' %}" style="color: white"
+            >Login</a
+          >
         </div>
       </nav>
     </div>
@@ -76,19 +75,26 @@
     </div> -->
 
     <div class="row new col-8">
-      <h3 style="text-align: center; margin-left: 200px; color: white;">
+      <h2 style="text-align: center; margin-left: 200px; color: white">
         WELCOME TO BEREAL MOTOR SPAREPARTS COMPANY.
-      </h3>
+      </h2>
     </div>
+
     <div class="row">
       <div
         class="col"
-        style="text-align: center; color: white; background-color: black;
-        position:fixed;bottom: 0;left: 0; ;">
+        style="
+          text-align: center;
+          color: white;
+          background-color: black;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+        "
+      >
         <footer>
-          <p>Bereal Motor spare parts Company</p>
+          <p>Bereal Motor spare parts Company &copy; Demetira Komuhangi</p>
           <p>Email:demetirakomuhangi2023@gmail.com</p>
-          &copy; Demetira Komuhangi
         </footer>
       </div>
     </div>

@@ -26,8 +26,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <style>
+      body,html {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    </style>
 
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;"> 
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black; position: fixed; top: 0; width: 100%; z-index: 1;"> 
       <a class="navbar-brand" href="">
         <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo-img">
       </a>
@@ -54,17 +60,15 @@
           {% endif %}
         </ul>
    </nav>
-
-    {% block content %}
-     {% endblock %}
-     <br><br><br><br><br><br><br><br>
+  {% block content %}
+     {% endblock %} 
+    <br><br>
     <div class="row">
-      <div class="col" style="text-align: center; color: white; background-color: black;">
+      <div class="col" style="text-align: center; color: white;
+       background-color: black; bottom: 0;position: fixed; width: 100%;">
         <footer>
-          <p>Bereal Motor spareparts Company</p>
-          <p>Email:demetirakomuhangi2023@gmail.com</p>
-          &copy; Demetira Komuhangi
-          <br><br>  
+          <p>Bereal Motor spareparts Company  &copy; Demetira Komuhangi</p>
+          <p>Email:demetirakomuhangi2023@gmail.com</p> 
         </footer>  
       </div>
     </div>  

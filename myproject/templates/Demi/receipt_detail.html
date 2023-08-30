@@ -1,6 +1,6 @@
 {% extends 'Demi/base.html' %} 
 {% block content %}
-<br />
+<br /><br><br><br><br>
 
 <div class="container">
   <div class="row">
@@ -8,6 +8,7 @@
       <div class="card" style="background-color: white;">
         <div class="card-header" style="border-color: black;">
           <h1 class="text-center" style="color: black;">ORDER SUMMARY</h1><br>
+        
           <h2 class="lead"style="color:black;">Customer Name: {{receipt.issued_to | title}}</h2>
         </div>
         <div class="card-block">
@@ -19,9 +20,8 @@
                   <td class="text-xs-center"><strong>Item Quantity</strong></td>
                   <td class="text-xs-right"><strong>Total Bill(Ugx)</strong></td>
                   <td class="text-xs-right"><strong>Amount Paid(Ugx)</strong></td>
-                  <td class="text-xs-right">
-                    <strong>Total change(UgX)</strong>
-                  </td>
+                  <td class="text-xs-right"><strong>Total change(UgX)</strong></td>
+                  <td class="text-xs-right"><strong>Date</strong></td>
                 </tr>
               </thead>
               <tbody>
@@ -31,10 +31,10 @@
                   <td class="text-xs-center">Ug{{receipt.get_total | title}}</td>
                   <td class="text-xs-right">Ugx{{ receipt.amount_received }}</td>
                   <td class="text-xs-right">Ugx{{ receipt.get_change }}</td>
+                  <td class="text-xs-right">{{ receipt.date }}</td>
                 </tr>
               </tbody>
             </table>
-            <br>
           manager' signature
           *************
             <p style="text-align: center;color: black;">Enjoy Our Services.</p>

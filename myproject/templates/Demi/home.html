@@ -2,16 +2,16 @@
 {% block content %} 
 {% load static %}
 
-<br></br>
+<br><br><br><br><br><br><br>
   <div class = "container">
     <form action = "" method = "GET" style="margin-right: 450px;">
       {{product_filters.form}}
       <input type = "submit"
       value = "Search spareparts"
-      class="btn btn-primary btn"/>
+      class="btn btn-info btn"/>
     </form>
   </div>
-  <br>
+  <br><br>
   <div class = "container">
     <h1 class= "text-center">ITEMS IN STOCK</h1>
     </div>
@@ -42,13 +42,14 @@
         
         <td>
           <a href ="{% url 'product_detail' product.id %}"><input type="submit"value="PURCHASE ITEM"
-                class="btn btn-secondary btn" style="color: blue;"
+                class="btn btn-info btn" style="color: skyblue;"
                 type="button"
             /></a></td>
       </tr>
     </tbody>
     {% endfor %}
   </table>
+  <br><br><br><br><br><br><br><br><br>
   
 
 </div>

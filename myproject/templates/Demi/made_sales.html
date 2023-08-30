@@ -1,6 +1,6 @@
 {% extends 'Demi/base.html'%} 
 {% block content%}
-<br></br>
+<br></br><br><br><br><br>
 
 <div class = "container">
 <h1 class = "text-center">ALL MADE SALES </h1><br>
@@ -34,6 +34,7 @@
         <th scope="col">Total Cost</th>
         <th scope="col">Amount Paid</th>
         <th scope="col">Change Collected</th>
+        <th scope="col">Sales Date</th>
       </tr>
     </thead>
     {% for sale in sales %}
@@ -46,6 +47,7 @@
         <td>UGX{{sale.get_total}}</td>
         <td>UGX{{sale.amount_received}}</td>
         <td>UGX{{sale.get_change}}</td>
+        <td>{{sale.date}}</td>
       </tr>
     </tbody>
     {% endfor %}
